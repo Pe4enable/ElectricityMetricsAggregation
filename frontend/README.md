@@ -12,11 +12,11 @@ Run app
 
 Build container:
 
-    docker build --rm -t ema:latest .
+    docker build --rm -t emaf:latest .
 
 Run container
 
-    docker run --rm  -p 3000:3000 --name ema ema:latest
+    docker run --rm  -p 3000:3000 --name emaf emaf:latest
 
 For run as demon add
 
@@ -24,4 +24,4 @@ For run as demon add
 
 Read logs from container
 
-    docker logs ema
+    docker logs emaf

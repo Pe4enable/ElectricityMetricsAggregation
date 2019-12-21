@@ -1,4 +1,4 @@
-const env = process.env.ENV || 'dev'; // 'dev' or 'test'
+const env = process.env.ENV || 'test'; // 'dev' or 'test'
 
 const dev = {
  app: {
@@ -23,7 +23,7 @@ const test = {
    port: parseInt(process.env.TEST_APP_PORT) || 8080
  },
  db: {
-    host: process.env.TEST_DB_HOST || 'localhost',
+    host: process.env.TEST_DB_HOST || 'docker.for.mac.localhost',
     port: parseInt(process.env.TEST_DB_PORT) || 5432,
     name: process.env.TEST_DB_NAME || 'cargo',
     user: process.env.TEST_DB_USER ||'postgres',

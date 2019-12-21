@@ -3,16 +3,8 @@ import React, {PureComponent} from 'react';
 import './App.css';
 import './main.css';
 import Graph from './components/graph/graph'
-
-const getDateString = uint256 => {
-  const date = new Date(uint256 * 1000);
-  return `${date.toLocaleString('en-us', {
-    month: 'long'
-  })} ${date.getDate()}, ${date.getFullYear()}`;
-};
-
-const getInfoBlock = (methods, methodsArray) =>
-  Promise.all(methods.map(methodName => methodsArray[methodName]().call()));
+import Table from './components/table/table'
+import axios from 'axios'
 
 const run = async func => {
   try {
@@ -21,15 +13,45 @@ const run = async func => {
     setTimeout(run, 1000, func);
   }
 };
+
+const baseUrl = "localhost:8080";
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       data: {
-        place: '',
-        startTime: '',
+        metrics: 
+        `[
+          {
+            "id": "1",
+            "deviceid": "1",
+            "createdate": "",
+            "type": "gps",
+            "value": "1000",
+            "deviceId": "1",
+            "createDate": ""
+          },
+          {
+            "id": "2",
+            "deviceid": "1",
+            "createdate": "",
+            "type": "gps",
+            "value": "2000",
+            "deviceId": "1",
+            "createDate": ""
+          }
+        ]`
       },
     };
+  }
+
+  componentDidMount() {
+    axios.get(baseUrl+ `/api/metrics`)
+      .then(res => {
+        const posts = res.data.data.children.map(obj => obj.data);
+        this.setState({ posts });
+      });
   }
 
   getWarning = warning => this.setState({ warning });
@@ -42,6 +64,7 @@ class App extends PureComponent {
     <main className="block-body">
     <div className="block-container-site">
       <div className="block-right-container-site">
+        <Table data={this.state.data.metrics}/>
         <Graph />
       </div>
     </div>

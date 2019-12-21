@@ -1,0 +1,74 @@
+.topBar__root {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4% 0 4%;
+  box-shadow: 0 2px 4px 0 rgba(127, 143, 164, 0.1);
+  background-color: #ffffff;
+  height: 68px;
+}
+
+
+.topBar__logo {
+  flex: 1;
+  justify-self: center;
+  align-self: center;
+  align-content: center;
+  font-family: Avenir;
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #263241;
+}
+
+.topBar__user__card {
+  /*width: 204px;*/
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 2px;
+  padding-left: 10px;
+  border: solid 1px #edf0f4;
+  text-overflow: ellipsis;
+  vertical-align: center;
+  align-self: center;
+}
+
+.topBar__userType {
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: -0.1px;
+  text-align: left;
+  color: #263241;
+  margin-top: 5px;
+}
+
+.topBar__icon__logout {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  align-self: center;
+  justify-self: flex-end;
+  margin-left: 7px;
+  cursor: pointer;
+}
+
+.topBar__userKey {
+  height: 11px;
+  font-family: Montserrat;
+  font-size: 9px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #9ba6b2;
+  text-overflow: ellipsis;
+}
